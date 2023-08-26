@@ -20,10 +20,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const hour = ref(1);
-const min = ref(0);
-const sec = ref(0);
-const remain_time = ref(0);
+const hour = ref(2);
+const min = ref(30);
+const sec = ref(20);
 
 let interval_id;
 onMounted(() => {});
@@ -34,6 +33,9 @@ onUnmounted(() => {
 let started;
 const elapsed = ref(0);
 const target_time = ref(0);
+const remain_time = ref(
+  (hour.value * 60 * 60 + min.value * 60 + sec.value) * 1000
+);
 const onClickStart = () => {
   target_time.value =
     (hour.value * 60 * 60 + min.value * 60 + sec.value) * 1000;
